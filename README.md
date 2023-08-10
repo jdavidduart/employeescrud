@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, install dependences
@@ -18,7 +16,11 @@ yarn dev
 pnpm dev
 ```
 
-deployment URL: https://employeescrud-one.vercel.app/
+### Deployment
+
+URL: https://employeescrud-one.vercel.app/
+
+### Aditional info
 
 This project was made with react 18.2.0 and nextjs 13.4.13
 node v16.16.0
