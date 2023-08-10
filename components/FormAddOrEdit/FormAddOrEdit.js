@@ -39,6 +39,10 @@ export default function FormAddOrEdit({
           <Form.Control
             {...register("firstName", {
               required: "First name is required",
+              pattern: {
+                value: /^[a-z ,.'-]+$/,
+                message: "Only letters are allowed",
+              },
             })}
             type="text"
             placeholder="John"
@@ -49,6 +53,10 @@ export default function FormAddOrEdit({
           <Form.Control
             {...register("middleName", {
               required: "Middle name is required",
+              pattern: {
+                value: /^[a-z ,.'-]+$/,
+                message: "Only letters are allowed",
+              },
             })}
             type="text"
             placeholder="Robert"
@@ -59,6 +67,10 @@ export default function FormAddOrEdit({
           <Form.Control
             {...register("lastName", {
               required: "Last name is required",
+              pattern: {
+                value: /^[a-z ,.'-]+$/,
+                message: "Only letters are allowed",
+              },
             })}
             type="text"
             placeholder="Doe"

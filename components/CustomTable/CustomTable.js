@@ -21,7 +21,7 @@ export default function CustomTable({ data, onEdit = () => null }) {
         </tr>
       </thead>
       <tbody>
-        {data.map((e, i) => (
+        {data?.map((e, i) => (
           <tr key={i}>
             <td>{e.firstName}</td>
             <td>{e.lastName}</td>
