@@ -1,95 +1,59 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import styles from "../../styles/Home.module.css";
+import { useApp } from "./hook";
+import EmployeesTable from "../../components/EmployeesTable/EmployeesTable";
+import Button from "../../components/Button/Button";
+import CustomModal from "../../components/CustomModal/CustomModal";
+import FormAddOrEdit from "../../components/FormAddOrEdit/FormAddOrEdit";
 
 export default function Home() {
+  const {
+    employees,
+    openAddEdit,
+    setOpenAddEdit,
+    employeeToEdit,
+    setEmployeeToEdit,
+  } = useApp();
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className={styles.container}>
+      <div className="my-5">
+        <h1 className="text-primary mt-5">Payroll software</h1>
+        <div className="mt-3 d-flex justify-content-between">
+          <p>This is the information about employees</p>
+          <Button
+            text={"Add new employee"}
+            variant="btn-primary"
+            onClick={() => setOpenAddEdit(true)}
+          />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      <div className={styles.table_container}>
+        <div style={{ minWidth: "800px" }}>
+          <EmployeesTable
+            data={employees}
+            onEdit={(employee) => {
+              setOpenAddEdit(true);
+              setEmployeeToEdit(employee);
+            }}
+          />
+        </div>
+      </div>
+      <CustomModal
+        title={"Edit"}
+        isOpen={openAddEdit}
+        onClose={() => {
+          setOpenAddEdit(false);
+          setEmployeeToEdit(null);
+        }}
+      >
+        <FormAddOrEdit
+          employeeToEdit={employeeToEdit}
+          onCancel={() => {
+            setOpenAddEdit(false);
+            setEmployeeToEdit(null);
+          }}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </CustomModal>
+    </div>
+  );
 }

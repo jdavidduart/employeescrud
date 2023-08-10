@@ -1,0 +1,26 @@
+.footer_container{
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-top: 16px;
+    padding: 24px 0 0 0;
+}
+
+.form_fields_wrap{
+    display: grid;
+}
+
+.secondary_section{
+    margin-top: 1rem;
+}
+ 
+
+@media (min-width:700px){
+    .form_fields_wrap{
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    .secondary_section{
+        margin: 0;
+    }
+}
