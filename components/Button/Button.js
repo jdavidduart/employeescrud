@@ -4,16 +4,18 @@ export default function Button({
   icon,
   onClick = () => null,
   size = "",
+  id,
 }) {
   return (
     <>
       <button
+        id={id}
         type="button"
         className={`btn ${variant} ${size}`}
-        onClick={() => onClick()}
+        onClick={(e) => onClick(e)}
       >
         {text}
-        {icon && <i className={icon}></i>}
+        {icon && <i style={{ pointerEvents: "none" }} className={icon}></i>}
       </button>
     </>
   );

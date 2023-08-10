@@ -17,7 +17,6 @@
     "next": "13.4.13",
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
-    "react-bootstrap-table-next": "^4.0.3",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
     "react-redux": "^7.2.6",

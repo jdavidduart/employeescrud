@@ -1,10 +1,10 @@
 "use client";
 import styles from "../../styles/Home.module.css";
 import { useApp } from "./hook";
-import EmployeesTable from "../../components/EmployeesTable/EmployeesTable";
 import Button from "../../components/Button/Button";
 import CustomModal from "../../components/CustomModal/CustomModal";
 import FormAddOrEdit from "../../components/FormAddOrEdit/FormAddOrEdit";
+import CustomTable from "../../components/CustomTable/CustomTable";
 
 export default function Home() {
   const {
@@ -29,7 +29,7 @@ export default function Home() {
       </div>
       <div className={styles.table_container}>
         <div style={{ minWidth: "800px" }}>
-          <EmployeesTable
+          <CustomTable
             data={employees}
             onEdit={(employee) => {
               setOpenAddEdit(true);
