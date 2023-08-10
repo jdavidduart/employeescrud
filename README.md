@@ -19,3 +19,4 @@ pnpm dev
 ```
 
 This project was made with react 18.2.0 and nextjs 13.4.13
+node v16.16.0
